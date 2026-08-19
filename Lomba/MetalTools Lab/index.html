@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#14202b">
+    <title>MetalTools Lab</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+    <div class="app-shell">
+        <!-- Header Utama -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-mark">MT</div>
+                <div>
+                    <h1>MetalTools <span>Lab</span></h1>
+                    <small>Ukur, Gerinda, dan Potong Busur</small>
+                </div>
+            </div>
+            <div style="color: var(--steel-300); font-size: 0.85rem; font-weight: 600;">
+                KODE: TMR_TPFABL_7
+            </div>
+        </header>
+
+        <!-- Layout Utama (Sidebar + Konten) -->
+        <div class="main-layout">
+            <!-- Sidebar Navigasi -->
+            <aside class="sidebar">
+                <ul class="nav-list">
+                    <li><button type="button" class="nav-link active" data-scene="home">🏠 Beranda</button></li>
+                    <li><button type="button" class="nav-link" data-scene="k3">🛡️ Pengecekan K3</button></li>
+                    <li><button type="button" class="nav-link" data-scene="ukur">📏 Pengukuran</button></li>
+                    <li><button type="button" class="nav-link" data-scene="perkakas">⚙️ Perkakas Bengkel</button></li>
+                    <li><button type="button" class="nav-link" data-scene="potong">⚡ Pemotongan Plasma</button></li>
+                    <li><button type="button" class="nav-link" data-scene="hasil">📊 Hasil & Evaluasi</button></li>
+                </ul>
+            </aside>
+
+            <!-- Area Konten / Scene -->
+            <main class="content" tabindex="-1">
+                <!-- Scene 1: Beranda -->
+                <section id="scene-home" class="scene" aria-labelledby="home-title">
+                    <div class="panel" style="border-top-color: var(--safety);">
+                        <p class="status"><span class="led"></span> SIMULATOR PRAKTIKUM OFFLINE</p>
+                        <h2 id="home-title" class="page-title" style="margin-top: .5rem;">MetalTools Lab: Ukur, Gerinda, dan Potong</h2>
+                        <p style="color: var(--steel-700); font-size: 1.05rem; line-height: 1.6;">
+                            Selamat datang di laboratorium maya Teknik Pengelasan dan Fabrikasi Logam. Latih keterampilan kerja logam dengan aman, presisi, dan terukur sebelum turun langsung ke bengkel nyata.
+                        </p>
+                        
+                        <div style="background: #edf0f1; padding: 1.25rem; border-radius: 6px; margin: 1.5rem 0; border-left: 4px solid var(--navy);">
+                            <h3 style="margin-top: 0; color: var(--navy);">Studi Kasus: Bracket Baja</h3>
+                            <p style="margin-bottom: 0; color: var(--steel-800);">
+                                Mengapa alat yang tepat menentukan akurasi, keselamatan, dan mutu potongan? Siapkan APD, ukur material, pilih perkakas, dan atur parameter pemotongan busur secara virtual.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-safety" type="button" data-scene="k3">Masuk Lab Maya →</button>
+                    </div>
+                </section>
+
+                <!-- Scene 2: K3 -->
+                <section id="scene-k3" class="scene hidden" aria-labelledby="k3-title">
+                    <div class="panel" style="border-top-color: var(--safety);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div>
+                                <p class="status"><span class="led warning"></span> TAHAP 01 / KESELAMATAN KERJA (K3)</p>
+                                <h2 id="k3-title" class="page-title" style="margin-top: .2rem; margin-bottom: 0;">Prosedur Standar Keselamatan</h2>
+                            </div>
+                            <div style="background: #fff4e6; padding: 0.5rem 1rem; border-radius: 6px; border: 1px dashed var(--safety); font-size: 0.85rem; font-weight: bold; color: var(--safety-dark);">
+                                ⚠️ WAJIB 100% APD LENGKAP
+                            </div>
+                        </div>
+                        <p style="color: var(--steel-700);">Sebelum mesin pemotong plasma dan alat ukur diaktifkan, operator wajib mengenakan seluruh Alat Pelindung Diri (APD) untuk menghindari kecelakaan kerja.</p>
+                        
+                        <form id="k3-form" style="margin-top: 1.5rem;">
+                            <fieldset style="border: 1px solid var(--steel-300); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; background: var(--surface);">
+                                <legend style="font-weight: bold; color: var(--navy); padding: 0 .5rem;">Checklist APD Wajib (Centang Semua)</legend>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem; margin-top: .75rem;">
+                                    <label style="display: flex; align-items: center; gap: .6rem; cursor: pointer; background: #fff; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--steel-300);"><input type="checkbox" name="apd" value="helm"> 🪖 Helm Keselamatan</label>
+                                    <label style="display: flex; align-items: center; gap: .6rem; cursor: pointer; background: #fff; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--steel-300);"><input type="checkbox" name="apd" value="kacamata"> 🥽 Kacamata Pelindung</label>
+                                    <label style="display: flex; align-items: center; gap: .6rem; cursor: pointer; background: #fff; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--steel-300);"><input type="checkbox" name="apd" value="sarung-tangan"> 🧤 Sarung Tangan Kulit</label>
+                                    <label style="display: flex; align-items: center; gap: .6rem; cursor: pointer; background: #fff; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--steel-300);"><input type="checkbox" name="apd" value="sepatu"> 🥾 Sepatu Safety (Ujung Besi)</label>
+                                    <label style="display: flex; align-items: center; gap: .6rem; cursor: pointer; background: #fff; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--steel-300);"><input type="checkbox" name="apd" value="apron"> 🦺 Apron / Jaket Kulit</label>
+                                </div>
+                            </fieldset>
+                            
+                            <div style="margin-bottom: 1.25rem;">
+                                <label for="job-card" style="display: block; font-weight: bold; margin-bottom: .4rem; color: var(--navy);">Nomor Job Card / Spesifikasi Proyek</label>
+                                <textarea id="job-card" name="job-card" rows="2" placeholder="Contoh: JC-2026/BRACKET-ST37 (Pemotongan pelat baja tebal 10mm)..." style="width: 100%; padding: .75rem; border: 1px solid var(--steel-300); border-radius: 6px;"></textarea>
+                            </div>
+                            
+                            <button class="btn btn-safety" type="submit" style="width: 100%; padding: 0.9rem; font-size: 1rem;">Verifikasi K3 & Buka Kunci Lab →</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Scene 3: Ukur -->
+                <section id="scene-ukur" class="scene hidden" aria-labelledby="ukur-title">
+                    <div class="panel">
+                        <p class="status"><span class="led"></span> TAHAP 02 / PRESISI</p>
+                        <h2 id="ukur-title" class="page-title" style="margin-top: .5rem;">Area Simulasi Pengukuran</h2>
+                        <p style="color: var(--steel-700);">Gunakan alat ukur digital untuk menentukan ukuran benda kerja secara presisi.</p>
+                        
+                        <div class="dashboard-grid" style="margin-top: 1.5rem;">
+                            <div class="col-6 panel" style="border-top-color: var(--navy);">
+                                <h3 style="margin-top: 0; color: var(--navy);">Jangka Sorong (Caliper)</h3>
+                                <div class="digital-readout" style="margin: 1rem 0;">
+                                    <span id="caliper-reading">0,00 mm</span>
+                                    <small>0 - 150 mm</small>
+                                </div>
+                                <input type="range" id="caliper-slider" min="0" max="150" step="0.05" value="0" style="width: 100%; cursor: pointer;" aria-label="Geser jangka sorong">
+                                <p style="font-size: .85rem; color: var(--steel-700); margin-top: .5rem;">Geser slider untuk mensimulasikan bukaan rahang jangka sorong.</p>
+                            </div>
+
+                            <div class="col-6 panel" style="border-top-color: var(--navy);">
+                                <h3 style="margin-top: 0; color: var(--navy);">Welding Gauge</h3>
+                                <div class="digital-readout" style="margin: 1rem 0;">
+                                    <span id="welding-reading">0,0 mm</span>
+                                    <small>Pengelasan</small>
+                                </div>
+                                <input type="range" id="welding-slider" min="0" max="12" step="0.1" value="0" style="width: 100%; cursor: pointer;" aria-label="Atur welding gauge">
+                                <p style="font-size: .85rem; color: var(--steel-700); margin-top: .5rem;">Atur pengukur untuk memeriksa ketinggian hasil las.</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn" type="button" data-scene="perkakas">Lanjut ke Perkakas →</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scene 4: Perkakas -->
+                <section id="scene-perkakas" class="scene hidden" aria-labelledby="perkakas-title">
+                    <div class="panel">
+                        <p class="status"><span class="led"></span> TAHAP 03 / PERALATAN</p>
+                        <h2 id="perkakas-title" class="page-title" style="margin-top: .5rem;">Pemilihan Perkakas (Tool Inventory)</h2>
+                        <p style="color: var(--steel-700);">Seret alat ke area kerja atau pilih perkakas yang sesuai dengan jenis pekerjaan.</p>
+                        
+                        <div class="dashboard-grid" style="margin-top: 1.5rem;">
+                            <div class="col-6 panel" style="border-top-color: var(--steel-700);">
+                                <h3 style="margin-top: 0; color: var(--navy);">Daftar Alat</h3>
+                                <div id="tool-list" style="display: grid; gap: .5rem; margin-top: 1rem;">
+                                    <button class="btn tool" draggable="true" data-tool="Gerinda Tangan 4 Inch" style="justify-content: flex-start; background: var(--steel-800);">⚙️ Gerinda Tangan 4"</button>
+                                    <button class="btn tool" draggable="true" data-tool="Kunci Pas Set" style="justify-content: flex-start; background: var(--steel-800);">🔧 Kunci Pas Set</button>
+                                    <button class="btn tool" draggable="true" data-tool="Mistar Baja 30cm" style="justify-content: flex-start; background: var(--steel-800);">📏 Mistar Baja 30cm</button>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="drop-zone panel" id="workbench" tabindex="0" aria-label="Area kerja" style="height: 100%; border-top-color: var(--safety);">
+                                    <div>
+                                        <strong>Meja Kerja Virtual</strong>
+                                        <span>Seret dan letakkan perkakas di sini</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn" type="button" data-scene="potong">Lanjut ke Pemotongan →</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scene 5: Potong -->
+                <section id="scene-potong" class="scene hidden" aria-labelledby="potong-title">
+                    <div class="panel">
+                        <p class="status"><span class="led"></span> TAHAP 04 / FABRIKASI</p>
+                        <h2 id="potong-title" class="page-title" style="margin-top: .5rem;">Plasma Cutting & Parameter</h2>
+                        <p style="color: var(--steel-700);">Atur parameter arus dan kecepatan potong virtual, lalu lakukan inspeksi hasil.</p>
+                        
+                        <form id="cutting-form" class="parameter-form" style="margin-top: 1.5rem;">
+                            <div style="margin-bottom: 1rem;">
+                                <label for="current" style="display: flex; justify-content: space-between; font-weight: bold; color: var(--navy); margin-bottom: .4rem;">
+                                    <span>Arus Pemotongan (Ampere)</span>
+                                    <output id="current-output" style="color: var(--safety);">60</output> A
+                                </label>
+                                <input id="current" type="range" min="20" max="120" value="60" style="width: 100%; cursor: pointer;">
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <label for="speed" style="display: flex; justify-content: space-between; font-weight: bold; color: var(--navy); margin-bottom: .4rem;">
+                                    <span>Kecepatan Potong (mm/menit)</span>
+                                    <output id="speed-output" style="color: var(--safety);">500</output> mm/min
+                                </label>
+                                <input id="speed" type="range" min="100" max="1000" value="500" style="width: 100%; cursor: pointer;">
+                            </div>
+
+                            <div style="margin-bottom: 1.25rem;">
+                                <label for="inspection" style="display: block; font-weight: bold; margin-bottom: .4rem; color: var(--navy);">Catatan Inspeksi Visual</label>
+                                <textarea id="inspection" rows="3" placeholder="Catat kualitas tepi, dross, dan hasil pengamatan..." style="width: 100%; padding: .75rem; border: 1px solid var(--steel-300); border-radius: 6px;"></textarea>
+                            </div>
+
+                            <button class="btn btn-safety" type="submit">Selesaikan & Proses Inspeksi</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Scene 6: Hasil -->
+                <section id="scene-hasil" class="scene hidden" aria-labelledby="hasil-title">
+                    <div class="panel">
+                        <p class="status"><span class="led"></span> TAHAP 05 / EVALUASI</p>
+                        <h2 id="hasil-title" class="page-title" style="margin-top: .5rem;">Ringkasan Evaluasi Praktikum</h2>
+                        <div id="results" style="margin-top: 1rem;">
+                            <p style="color: var(--steel-700);">Data evaluasi dan skor akhir akan tampil setelah seluruh tahapan simulasi selesai dijalankan.</p>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn" type="button" data-scene="home">Ulangi Praktikum ↺</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            MetalTools Lab · Praktikum manufaktur aman dan presisi (Rasio 16:9 SPA Offline)
+        </footer>
+    </div>
+
+    <!-- Modal K3 Error -->
+    <dialog id="k3-error-modal" aria-labelledby="modal-title" style="padding: 0; border: none; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,.3); max-width: 400px; width: 90%;">
+        <div style="padding: 1.5rem; background: #fff;">
+            <p class="status"><span class="led warning"></span> PERHATIAN K3</p>
+            <h2 id="modal-title" style="margin: .5rem 0 1rem; color: var(--danger);">Pengecekan Belum Lengkap</h2>
+            <p style="color: var(--steel-700); margin-bottom: 1.5rem;">Anda wajib melengkapi seluruh 5 APD keselamatan sebelum diizinkan masuk ke area lab maya.</p>
+            <button class="btn btn-safety" type="button" data-close-modal style="width: 100%;">Periksa Kembali</button>
+        </div>
+    </dialog>
+
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/simulation.js" defer></script>
+</body>
+</html>
